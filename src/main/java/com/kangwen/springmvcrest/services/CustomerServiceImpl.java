@@ -21,6 +21,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public long size() {
+        return customerRepository.count();
+    }
+
+    @Override
     public List<Customer> findAllCustomers() {
         return customerRepository.findAll();
     }
