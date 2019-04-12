@@ -22,7 +22,7 @@ public class CustomerController {
 
 
     @GetMapping
-    List<Customer> getAllCustomers() {
+    public List<Customer> getAllCustomers() {
         return customerService.findAllCustomers();
     }
 
@@ -40,6 +40,11 @@ public class CustomerController {
     @ResponseStatus(HttpStatus.CREATED)
     public Customer saveCustomer(@RequestBody Customer customer) {
         return customerService.saveCustomer(customer);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteCustomer(@PathVariable Long id) {
+        customerService.deleteCustomer(id);
     }
 
 }
